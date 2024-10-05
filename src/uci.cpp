@@ -147,19 +147,19 @@ namespace UCI {
     // options functions
     void Uci::applyOptions() {
         auto path = getOption("SyzygyPath");
-        if (!path.empty()) {
+        if (!path.empty() && path != "<empty>") {
             bool success = tb_init(path.c_str());
 
             if (success && TB_LARGEST > 0) {
                 engine.use_TB = true;
-                std::cout << "info string successfully loaded syzygy path " << path << std::endl;
+                std::cout << "info string successfully loaded syzygy path" << std::endl;
             } else {
                 std::cout << "info string failed to load syzygy path " << path << std::endl;
             }
         }
 
         path = getOption("EvalFile");
-        if (!path.empty()) {
+        if (!path.empty() && path != "<empty>") {
             NNUE::nnue.init(path);
         }
 
