@@ -5,30 +5,6 @@ Astra is a UCI chess engine written in C++.
 ## Strength
 - Unknown
 
-## Board Representation
-- Bitboards
-- Magic Bitboards
-
-## Search
-- Principal Variation Search (PVS)
-- Quiescence Search
-- Iterative Deepening
-- Transposition Table
-- Aspiration Windows
-- Internal Iterative Reductions (IIR)
-- Delta Pruning
-- Reverse Futility Pruning
-- Mate Pruning
-- Null Move Pruning
-- Razoring
-- Static Exchange Evaluation (SEE)
-- Late Move Reductions (LMR)
-- History Heuristic
-- Killer Heuristic
-- Counter Heuristic
-- Singular Extensions
-- One Reply Extension
-
 ## Evaluation
 - NNUE (Efficiently Updatable Neural Network)
 - Currently trained on ~38 mil. positions
