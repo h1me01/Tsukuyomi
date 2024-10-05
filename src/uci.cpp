@@ -135,7 +135,6 @@ namespace UCI {
                 applyOptions();
             } else if (token == "d") {
                 engine.board.print(engine.board.getTurn());
-            } else if (token == "stop") {
             } else if (token == "quit") {
                 tb_free();
                 break;
