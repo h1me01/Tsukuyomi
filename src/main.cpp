@@ -5,9 +5,9 @@ int main() {
     initLookUpTables();
     Zobrist::init();
     Astra::initReductions();
-
+    
     // generate data for neural network
-    //saveNetInput(fenToInput(loadDataset()));
+    //saveNetInput(INT_MAX);;
 
     UCI::Uci uci;
     uci.loop();

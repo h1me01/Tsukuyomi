@@ -404,8 +404,7 @@ namespace Astra {
 
         ss->move_count = moves.size();
 
-        uint8_t quiet_count = 0;
-        uint8_t made_moves = 0;
+        uint8_t made_moves = 0, quiet_count = 0;
         for (Move move: moves) {
             if (move == excluded_move) {
                 continue;
