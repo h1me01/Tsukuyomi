@@ -280,8 +280,8 @@ namespace Astra {
             Score tb_score = probeWDL(board);
 
             if (tb_score != VALUE_NONE) {
-                std::cout << "F" << std::endl;
                 Bound bound = NO_BOUND;
+                tb_hits++;
 
                 switch (tb_score) {
                     case VALUE_TB_WIN:
@@ -667,6 +667,7 @@ namespace Astra {
 
             std::cout << " nodes " << nodes
                     << " nps " << nodes * 1000 / (elapsed_time + 1)
+                    << " tbhits " << tb_hits
                     << " time " << elapsed_time;
 
             std::string pv = getPv();
@@ -689,6 +690,7 @@ namespace Astra {
     void Search::reset() {
         board = Board(STARTING_FEN);
         nodes = 0;
+        tb_hits = 0;
         tt->clear();
         pv_table.reset();
         move_ordering.clearHistory();

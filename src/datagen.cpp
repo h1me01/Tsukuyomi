@@ -45,16 +45,25 @@ void saveNetInput(int datasize) {
     std::vector<NetInput> data = loadDataset(datasize);
     std::cout << "Loaded " << data.size() << " positions" << std::endl;
 
-    std::ofstream file(NET_DATA_PATH, std::ios::binary);
-    if (!file.is_open()) {
-        std::cerr << "Error writing in file" << std::endl;
-        exit(1);
+    // calculate size of file (in gb)
+    std::cout << "Size of file: " << (sizeof(NetInput) * data.size()) / (1024 * 1024 * 1024) << " gb" << std::endl;
+
+    const int batch_size = 4096;
+
+    int num_batches = data.size() / batch_size;
+    for(int i = 0; i < num_batches - 1; i++) {
+        std::ofstream file(NET_DATA_PATH + "batch_" + std::to_string(i + 1) + ".bin", std::ios::binary);
+        if (!file.is_open()) {
+            std::cerr << "Error writing in file" << std::endl;
+            exit(1);
+        }
+
+        for (int j = 0; j < batch_size; j++) {
+            file.write(reinterpret_cast<const char *>(&data[i * batch_size + j]), sizeof(NetInput));
+        }
+
+        file.close();
     }
 
-    for (const NetInput &input: data) {
-        file.write(reinterpret_cast<const char *>(&input), sizeof(NetInput));
-    }
-
-    file.close();
     exit(0);
 }

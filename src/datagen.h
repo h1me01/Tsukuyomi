@@ -6,8 +6,8 @@
 
 using namespace Chess;
 
-const std::string DATA_PATH = "C:/Users/semio/Documents/programming/Astra-Data/val_data/chess_val_data1_d9.csv";
-const std::string NET_DATA_PATH = "C:/Users/semio/Downloads/chess_data.bin";
+const std::string DATA_PATH = "C:/Users/semio/Documents/programming/Astra-Chess-Engine/Astra-Data/val_data/chess_val_data1_d9.csv";
+const std::string NET_DATA_PATH = "C:/Users/semio/Downloads/astra-bin/";
 
 struct NetInput {
     uint64_t pieces[NUM_COLORS][6]{};

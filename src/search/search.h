@@ -51,6 +51,7 @@ namespace Astra {
 
     private:
         U64 nodes{};
+        U64 tb_hits{};
         uint8_t sel_depth = 0;
 
         PVTable pv_table;
