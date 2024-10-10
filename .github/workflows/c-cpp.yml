@@ -12,12 +12,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+      - uses: actions/checkout@v3  # Or use @v4 if that is confirmed to exist for your use case.
+      - name: configure
+        run: ./configure
+      - name: build
+        run: make
+      - name: test
+        run: make check
+      - name: distcheck
+        run: make distcheck
+      - name: clean
+        run: make clean
