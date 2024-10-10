@@ -7,7 +7,7 @@ int main() {
     Astra::initReductions();
 
     // generate data for neural network
-    //saveNetInput(INT_MAX);;
+    saveNetInput(INT_MAX);;
 
     UCI::Uci uci;
     uci.loop();
